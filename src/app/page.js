@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Mail, Linkedin } from 'lucide-react';
@@ -20,10 +21,12 @@ export default function Home() {
       {/* Main Content */}
       <main className="flex-1 p-6">
         <section className="text-center space-y-4">
-          <img
+          <Image
             src="/Kashish Headshot.jpg"
             alt="Kashish Shah Headshot"
-            className="mx-auto rounded-full w-40 h-40 object-contain shadow-md border"
+            width={160}
+            height={160}
+            className="mx-auto rounded-full object-contain shadow-md border"
           />
           <h2 className="text-4xl font-bold">Kashish Shah</h2>
           <p className="text-xl">Embedded Systems & Firmware Engineer</p>
@@ -31,7 +34,7 @@ export default function Home() {
             <a href="mailto:kashishharesh.shah@mavs.uta.edu">
               <Button><Mail className="mr-2 w-4 h-4" /> Email</Button>
             </a>
-            <a href="https://www.linkedin.com/in/kashishshah25" target="_blank">
+            <a href="https://www.linkedin.com/in/kashishshah25" target="_blank" rel="noopener noreferrer">
               <Button variant="outline"><Linkedin className="mr-2 w-4 h-4" /> LinkedIn</Button>
             </a>
           </div>
@@ -61,7 +64,7 @@ export default function Home() {
             <br />• Tools: IAR, STM32CubeIDE, Edge Impulse, TensorFlow Lite, JTAG
             <br />• Agile Development: Git, Jira, Confluence, Bit Bucket, CI/CD
             <br /><br />
-            🤝 Let’s connect if you're building intelligent edge/IoT products or exploring how embedded AI can unlock new capabilities in connected devices!
+            🤝 Let&rsquo;s connect if you are building intelligent edge/IoT products or exploring how embedded AI can unlock new capabilities in connected devices!
           </p>
         </section>
 
