@@ -83,7 +83,7 @@ export default function HomePage() {
                 <div className="flex justify-center md:justify-start gap-4 mt-6">
                   <a href="mailto:kashishharesh.shah@mavs.uta.edu">
                     <Button className="bg-cyan-500 text-black hover:bg-cyan-600 shadow-md">
-                      Let's Talk
+                      Let&apos;s Talk
                     </Button>
                   </a>
                   <a href="https://linkedin.com/in/kashishshah25" target="_blank">
