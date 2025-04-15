@@ -21,6 +21,7 @@ const navItems = [
   { id: "skills", label: "Skills", icon: <Settings className="w-5 h-5" /> },
   { id: "certifications", label: "Certifications", icon: <FileText className="w-5 h-5" /> },
   { id: "projects", label: "Projects", icon: <Folder className="w-5 h-5" /> },
+  { id: "blogs", label: "Blogs", icon: <Folder className="w-5 h-5" /> },
   { id: "contact", label: "Contact", icon: <Mail className="w-5 h-5" /> },
 ];
 
