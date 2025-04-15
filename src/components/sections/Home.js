@@ -41,7 +41,7 @@ export default function Home({ id, sectionRef }) {
       <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
         Hello, I&apos;m <span className="text-cyan-400">Kashish Shah</span>
       </h1>
-      <h2 className="text-xl text-cyan-300 font-mono">// Embedded Systems Engineer</h2>
+      <h2 className="text-xl text-cyan-300 font-mono"> Embedded Systems Engineer</h2>
       <p className="text-gray-400 max-w-xl mx-auto">
         Specializing in real-time systems, firmware architecture, and embedded AI on ultra-low-power devices.
       </p>
