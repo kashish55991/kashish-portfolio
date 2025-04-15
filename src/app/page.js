@@ -52,7 +52,7 @@ export default function Page() {
         }
       },
       {
-        rootMargin: "-30% 0px -10% 0px", // ⬅︎ make the bottom margin smaller
+        rootMargin: "-30% 0px -10% 0px",
         threshold: 0.1,
       }
     );
