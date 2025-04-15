@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
+import Sidebar from "@/components/ui/Sidebar";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Home as HomeIcon,
@@ -18,6 +19,7 @@ import Experience from "@/components/sections/Experience";
 import Skills from "@/components/sections/Skills";
 import Certifications from "@/components/sections/Certifications";
 import Projects from "@/components/sections/Projects";
+import Blogs from "@/components/sections/Blogs";
 import Contact from "@/components/sections/Contact";
 
 const navItems = [
@@ -27,12 +29,15 @@ const navItems = [
   { id: "skills", label: "Skills", icon: <Settings className="w-4 h-4" /> },
   { id: "certifications", label: "Certifications", icon: <FileText className="w-4 h-4" /> },
   { id: "projects", label: "Projects", icon: <Folder className="w-4 h-4" /> },
+  { id: "blogs", label: "Blogs", icon: <Folder className="w-4 h-4" /> },
   { id: "contact", label: "Contact", icon: <Mail className="w-4 h-4" /> },
 ];
 
+
+
 export default function Page() {
   const [activeSection, setActiveSection] = useState("home");
-
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const sectionRefs = {
     home: useRef(null),
     about: useRef(null),
@@ -40,6 +45,7 @@ export default function Page() {
     skills: useRef(null),
     certifications: useRef(null),
     projects: useRef(null),
+    blogs: useRef(null),
     contact: useRef(null),
   };
 
@@ -67,6 +73,12 @@ export default function Page() {
   return (
     <div className="flex">
       {/* Sidebar */}
+      <Sidebar
+        collapsed={sidebarCollapsed}
+        setCollapsed={setSidebarCollapsed}
+        activeSection={activeSection}
+        sectionRefs={sectionRefs}
+      />
       <aside className="hidden md:flex fixed top-0 left-0 w-64 h-screen bg-[#161616] p-6 border-r border-gray-800 shadow-lg flex-col z-50">
         <motion.h1 className="text-2xl font-bold mb-8 text-cyan-400">Kashish Shah</motion.h1>
         <nav className="flex flex-col gap-3 text-sm font-medium">
@@ -89,7 +101,11 @@ export default function Page() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-6 md:ml-64">
+      <main
+        className={`flex-1 p-6 transition-all duration-300 ${
+          sidebarCollapsed ? "md:ml-16" : "md:ml-64"
+        }`}
+      >
         <AnimatePresence>
           <Home id="home" sectionRef={sectionRefs.home} />
           <About id="about" sectionRef={sectionRefs.about} />
@@ -97,6 +113,7 @@ export default function Page() {
           <Skills id="skills" sectionRef={sectionRefs.skills} />
           <Certifications id="certifications" sectionRef={sectionRefs.certifications} />
           <Projects id="projects" sectionRef={sectionRefs.projects} />
+          <Blogs id="blogs" sectionRef={sectionRefs.blogs} />
           <Contact id="contact" sectionRef={sectionRefs.contact} />
         </AnimatePresence>
       </main>
