@@ -39,7 +39,7 @@ export default function Home({ id, sectionRef }) {
 
       {/* Name & Role */}
       <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
-        Hello, I'm <span className="text-cyan-400">Kashish Shah</span>
+        Hello, I&apos;m <span className="text-cyan-400">Kashish Shah</span>
       </h1>
       <h2 className="text-xl text-cyan-300 font-mono">// Embedded Systems Engineer</h2>
       <p className="text-gray-400 max-w-xl mx-auto">
@@ -49,7 +49,7 @@ export default function Home({ id, sectionRef }) {
       {/* CTA Buttons */}
       <div className="flex justify-center gap-4 mt-4">
         <a href="mailto:kashishharesh.shah@mavs.uta.edu">
-          <Button className="bg-cyan-500 text-black hover:bg-cyan-600 shadow-md">Let's Talk</Button>
+          <Button className="bg-cyan-500 text-black hover:bg-cyan-600 shadow-md">Let&apos;s Talk</Button>
         </a>
         <a href="https://linkedin.com/in/kashishshah25" target="_blank" rel="noreferrer">
           <SiLinkedin className="text-[#0077B5] w-6 h-6 hover:scale-110 transition" />
