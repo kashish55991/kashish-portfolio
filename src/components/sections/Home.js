@@ -1,71 +1,90 @@
-"use client";
+'use client'
 
-import React from "react";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { MdEmail } from 'react-icons/md'
 import {
-  SiGithub,
-  SiLinkedin,
+  SiC,
+  SiGit,
   SiStmicroelectronics,
-  SiCplusplus,
-  SiTensorflow,
-  SiPython,
-} from "react-icons/si";
+  SiTensorflow
+} from 'react-icons/si'
 
-export default function Home({ id, sectionRef }) {
+export default function Home() {
   return (
-    <motion.section
-      id={id}
-      ref={sectionRef}
-      className="min-h-screen max-w-4xl mx-auto flex flex-col justify-center items-center text-center"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
+    <section
+      id="home"
+      className="min-h-screen pb-30 pt-0 flex flex-col items-center justify-center text-white bg-[#0F1115]"
     >
-      {/* Circular Headshot with Gradient Frame */}
-      <div className="relative w-56 h-56">
-        <div className="absolute inset-0 rounded-full p-[4px] bg-gradient-to-tr from-cyan-400 via-cyan-600 to-blue-800 animate-spin-slow"></div>
-        <div className="relative z-10 w-full h-full rounded-full overflow-hidden bg-[#0f0f0f] border-4 border-[#111] flex items-center justify-center">
-          <Image
-            src="/Kashish Headshot.jpg"
-            alt="Kashish Shah"
-            width={212}
-            height={212}
-            className="rounded-full object-cover shadow-lg"
-          />
-        </div>
-      </div>
+      <div className="relative z-10 flex flex-col justify-center items-center w-full md:ml-20 px-6">
 
-      {/* Name & Role */}
-      <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
-        Hello, I&apos;m <span className="text-cyan-400">Kashish Shah</span>
-      </h1>
-      <h2 className="text-xl text-cyan-300 font-mono"> Embedded Systems Engineer</h2>
-      <p className="text-gray-400 max-w-xl mx-auto">
-        Specializing in real-time systems, firmware architecture, and embedded AI on ultra-low-power devices.
-      </p>
+        {/* Hero Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col items-center text-center py-20"
+        >
+          {/* Profile Image with Static Image and Spinning Frame */}
+          <div className="relative w-56 h-56 flex items-center justify-center">
+            {/* Static Image */}
+            <div className="w-48 h-48 rounded-full overflow-hidden z-10">
+              <Image
+                src="/Kashish Headshot.jpg"
+                alt="Kashish"
+                width={192}
+                height={192}
+                className="object-cover w-full h-full"
+              />
+            </div>
 
-      {/* CTA Buttons */}
-      <div className="flex justify-center gap-4 mt-4">
-        <a href="mailto:kashishharesh.shah@mavs.uta.edu">
-          <Button className="bg-cyan-500 text-black hover:bg-cyan-600 shadow-md">Let&apos;s Talk</Button>
-        </a>
-        <a href="https://linkedin.com/in/kashishshah25" target="_blank" rel="noreferrer">
-          <SiLinkedin className="text-[#0077B5] w-6 h-6 hover:scale-110 transition" />
-        </a>
-        <a href="https://github.com/kashish55991" target="_blank" rel="noreferrer">
-          <SiGithub className="text-white w-6 h-6 hover:scale-110 transition" />
-        </a>
-      </div>
+            {/* Spinning Hex Frame */}
+            <div className="absolute w-56 h-56 z-20 pointer-events-none">
+              <div className="hex-spin-border" />
+            </div>
+          </div>
 
-      {/* Tech Icons */}
-      <div className="mt-6 flex flex-wrap gap-6 text-cyan-400 text-2xl justify-center">
-        <SiStmicroelectronics title="STM32" />
-        <SiCplusplus title="C++" />
-        <SiTensorflow title="TinyML" />
-        <SiPython title="Python" />
+          {/* Name and Role */}
+          <h1 className="mt-8 text-4xl font-bold text-[#00FFD1]">Hey, I'm Kashish</h1>
+          <p className="text-lg text-gray-300">Embedded Software Engineer</p>
+
+          {/* Social Links */}
+          <div className="flex space-x-6 mt-6 text-[#00FFD1] text-2xl">
+            <a href="https://github.com/kashish55991" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+            <a href="https://linkedin.com/in/kashishshah25" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+            <a href="mailto:kashishharesh.shah@mavs.uta.edu"><MdEmail /></a>
+          </div>
+        </motion.div>
+
+        {/* Skills Section */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="w-full max-w-2xl text-center"
+        >
+          <h2 className="text-2xl font-semibold text-[#00FFD1] mb-8">Tech I Use</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+            <div className="flex flex-col items-center">
+              <SiC className="text-4xl text-yellow-400" />
+              <span className="mt-2 text-sm">Embedded C</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <SiTensorflow className="text-4xl text-blue-400" />
+              <span className="mt-2 text-sm">TensorFlow</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <SiGit className="text-4xl text-cyan-400" />
+              <span className="mt-2 text-sm">SCM</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <SiStmicroelectronics className="text-4xl text-sky-300" />
+              <span className="mt-2 text-sm">Microcontrollers</span>
+            </div>
+          </div>
+        </motion.div>
       </div>
-    </motion.section>
-  );
+    </section>
+  )
 }

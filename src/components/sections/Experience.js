@@ -1,69 +1,84 @@
-"use client";
+'use client'
 
-import React from "react";
-import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
+import { motion } from 'framer-motion'
+import { FaBriefcase } from 'react-icons/fa'
 
-export default function Experience({ id, sectionRef }) {
-  const jobs = [
-    {
-      title: "Digi International",
-      time: "Apr 2021 – Present",
-      bullets: [
-        "Developed scalable LoRaWAN firmware (US915, EU868)",
-        "Built AT Command and API support for XBee LoRa devices",
-        "Integrated sensors (temperature, GPS, accelerometer)",
-        "Implemented DFU/XMODEM bootloaders for upgrades",
-        "Created automated test frameworks with Unity & Pytest",
-        "Improved RF performance with spectrum analyzer tools",
-        "Collaborated with backend team for telemetry & provisioning",
-      ],
-    },
-    {
-      title: "Haxiot, Inc",
-      time: "Feb 2021 – Apr 2021",
-      bullets: [
-        "Tested and debugged STM32 bare-metal devices",
-        "Built provisioning tools using Python and Raspberry Pi",
-        "Configured LoRaWAN for multiple product lines",
-      ],
-    },
-    {
-      title: "UTARI – UT Arlington Research Institute",
-      time: "Jan 2019 – Feb 2021",
-      bullets: [
-        "Developed Smart Seat Cushion firmware (Metro M4)",
-        "Used C, C++, CircuitPython for embedded control",
-        "Integrated BLE (nrf51), SPI, gesture button RGB input",
-        "Built automated testing system and Eagle PCB layouts",
-      ],
-    },
-  ];
+const experiences = [
+  {
+    company: 'Digi International',
+    title: 'Embedded Software Engineer Intern',
+    duration: 'May 2023 – Aug 2023',
+    details: [
+      'Enhanced ThreadX RTOS & STM32WLE5 SDK for industrial gateway product.',
+      'Optimized 2-stage bootloader (SPI Flash, WWDG, XMODEM).',
+      'Integrated Modbus and edge data parsing with IoT cloud delivery.',
+    ],
+  },
+  {
+    company: 'Haxiot (acquired by Digi)',
+    title: 'Firmware Engineering Intern',
+    duration: 'Aug 2022 – Dec 2022',
+    details: [
+      'Developed I2C/SPI drivers for sensors on STM32WL.',
+      'Reduced latency in LPWAN telemetry via event-driven architecture.',
+      'Debugged LoRaWAN Class A/C transmission flows and OTA updates.',
+    ],
+  },
+  {
+    company: 'UTARI',
+    title: 'Student Research Engineer',
+    duration: 'Jan 2021 – May 2022',
+    details: [
+      'Built C++ robotic arm modules (pick/place, FSM control) on ROS.',
+      'Integrated Gazebo simulation + low-level STM32 control board.',
+      'Published academic work on human-robot interaction feedback.',
+    ],
+  },
+]
 
+export default function Experience() {
   return (
-    <motion.section
-      id={id}
-      ref={sectionRef}
-      className="mt-32 space-y-6 max-w-3xl mx-auto text-gray-300 px-4"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      <h2 className="text-3xl font-semibold text-cyan-400">Experience</h2>
+    <section id="experience" className="min-h-screen px-6 py-20 bg-[#0F1115] text-white relative overflow-hidden">
+      {/* Background pattern */}
 
-      {jobs.map((job, i) => (
-        <Card key={i} className="bg-[#1e1e1e] border border-gray-700">
-          <CardContent className="pt-4 space-y-2">
-            <h3 className="text-lg font-semibold text-white">{job.title}</h3>
-            <p className="text-sm text-gray-500">{job.time}</p>
-            <ul className="list-disc ml-5 text-sm space-y-1 text-gray-300">
-              {job.bullets.map((item, idx) => (
-                <li key={`${job.title}-${idx}`}>{item}</li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
-      ))}
-    </motion.section>
-  );
+      {/* <div className="absolute inset-0 z-0 opacity-10 bg-[url('/topography.svg')] bg-repeat" /> */}
+
+      <div className="relative z-10 max-w-5xl mx-auto">
+        <h2 className="text-3xl font-bold text-[#00FFD1] text-center mb-16">
+          Experience
+        </h2>
+
+        <div className="relative border-l-2 border-[#00FFD1] pl-8 space-y-12">
+        {experiences.map((exp, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+            className="relative pl-10"
+          >
+            {/* Timeline Dot */}
+            <div className="absolute left-0 top-2 w-5 h-5 bg-[#00FFD1] rounded-full flex items-center justify-center shadow-md">
+              <FaBriefcase className="text-black text-xs" />
+            </div>
+
+            {/* Content */}
+            <div>
+              <p className="text-sm text-gray-400 mb-1">{exp.duration}</p>
+              <h3 className="text-xl font-semibold">
+                {exp.title}{' '}
+                <span className="text-[#00FFD1]">@ {exp.company}</span>
+              </h3>
+              <ul className="list-disc list-inside text-gray-300 mt-2 space-y-1">
+                {exp.details.map((point, i) => (
+                  <li key={i}>{point}</li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        ))}
+        </div>
+      </div>
+    </section>
+  )
 }

@@ -18,11 +18,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
         className={`bg-[#0f0f0f] text-gray-100 ${geistSans.variable} ${geistMono.variable} font-sans`}
       >
-        {children}
+        {/* background animation */}
+        <div className="animated-bg" />
+        
+        {/* page content */}
+        <div className="relative z-10">
+          {children}
+        </div>
       </body>
     </html>
   );

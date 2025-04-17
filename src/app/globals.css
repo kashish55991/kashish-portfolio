@@ -1,8 +1,9 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
+/* Dark Mode Variant */
 @custom-variant dark (&:is(.dark *));
 
+/* Theming Tokens */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -43,6 +44,7 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+/* Light Theme Defaults */
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -78,6 +80,7 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+/* Dark Mode Overrides */
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -112,6 +115,7 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* Apply base styles */
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -119,4 +123,51 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+
+
+:root {
+  --background: #0F1115;
+  --foreground: #ffffff;
+  --accent: #00FFD1;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Geist', sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-none;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@keyframes rotate-hex {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hex-spin-border {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  animation: rotate-hex 12s linear infinite;
+  clip-path: polygon(
+    25% 6.7%, 75% 6.7%,
+    100% 50%, 75% 93.3%,
+    25% 93.3%, 0% 50%
+  );
+  border: 3px dashed #00FFD1;
+  background-color: transparent;
+  pointer-events: none;
 }
