@@ -46,7 +46,7 @@ export default function Home() {
           </div>
 
           {/* Name and Role */}
-          <h1 className="mt-8 text-4xl font-bold text-[#00FFD1]">Hey, I'm Kashish</h1>
+          <h1 className="mt-8 text-4xl font-bold text-[#00FFD1]">Hey, I&apos;m Kashish</h1>
           <p className="text-lg text-gray-300">Embedded Software Engineer</p>
 
           {/* Social Links */}
